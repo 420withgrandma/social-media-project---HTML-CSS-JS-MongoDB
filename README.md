@@ -1,0 +1,1 @@
+I was tasked with creating a social media website for my coursework. I decided to create a website for football fans. It uses a combination of HTML, CSS and JS. It also utilises MongdoDB for the database aspect.
