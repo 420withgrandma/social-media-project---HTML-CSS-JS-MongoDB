@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <!-- In this section the title of the website and images is loaded -->
+    <div class="banner">
+        <img src="../Images/football.jpg" class="leftfootball">
+        <h1 class="title">Football Updates</h1>
+        <img src="../Images/football.jpg" class="rightfootball">
+    </div>
+
+    <!-- In this section a gif is set onto the homepage and the user is given a button which will lead them to login and register -->
+    <div id="homepage" class="homepage">
+        <img src="../Images/ronaldo.gif" class="ronaldo">
+        <p>Click the button below to login and register!</p>
+        <button onClick="showForms()" class="lrbutton">Get Started</button>
+    </div>
+
+    <!-- In this section the login and register forms are created and the user can switch between both forms or go back -->
+    <div id="lrpage" class="container hidden">
+        <div id="loginform" class="form active">
+            <h2>Login</h2>
+            <form id="login">
+                <input type="text" placeholder="Username" id="lusername"><br>
+                <input type="password" placeholder="Password" id="lpassword"><br>
+                <button type="button" class="lrbutton" onClick="login()">Login</button>
+            </form>
+            <p>Don't have an account? <span class="toggle-btn" onClick="toggleForms('register')">Register Here</span></p>
+        </div>
+        <div id="registerform" class="form">
+            <h2>Register</h2>
+            <form id="register">
+                <input type="email" placeholder="Email" id="remail"><br>
+                <input type="text" placeholder="Firstname" id="rfname"><br>
+                <input type="text" placeholder="Surname" id="rsname"><br>
+                <input type="text" placeholder="Username" id="rusername"><br>
+                <input type="password" placeholder="Password" id="rpassword"><br>
+                <input type="password" placeholder="Re-Enter Password" id="rrpassword"><br>
+                <button type="button" class="lrbutton" onClick="register()">Register</button>
+            </form>
+            <p>Already have an account? <span class="toggle-btn" onClick="toggleForms('login')">Login Here</span></p>
+        </div>
+        <button class="toggle-btn" onClick="goBack()">Back to Welcome Page</button>
+    </div>
+
+    <!-- In this section the navigation bar for the user is loaded -->
+        <div id="nnbar" class="hidden">
+            <div class="search-bar">     
+                <input type="text" id="searchQuery" placeholder="Search users or posts">
+                <button type="button" class="toggle-btn" onClick="search()">Search</button>
+            </div>
+            <div class="profile-button">
+                <button class="toggle-btn" onclick="showProfilePage()">Profile</button>
+            </div>
+        </div>
+    
+    
+    <!-- In this section the user is able to post text and images -->
+    <div id="postpage" class="hidden">
+        <div id="home">
+            <h2>Create a Post</h2>
+            <form id="postForm">
+                <textarea id="postContent" placeholder="What's on your mind?" required></textarea>
+                <button type="button" class="toggle-btn" onClick="createPost()">Post</button>
+            </form>
+            <!-- <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" name="image" id="imageInput" />
+                <button type="button" class="toggle-btn" onclick="uploadImage()">Upload Image</button>
+            </form> I was not able to get the function to upload an image working but i have left the code incase -->
+            <button class="toggle-btn" onClick="fetchPosts()">View All Posts</button>   
+        </div>
+    </div>
+
+    <!-- In this section when the user clicks the posts button they are redirected to the posts page -->
+    <div id="postContainer" class="hidden">
+        <div class="post">
+            <h2>Posts</h2>
+            <div id="posts"></div>
+            <button class="toggle-btn" onClick="goBackToPostPage()">Back to Post Page</button>
+        </div>
+    </div>
+
+    <!-- In this section when the user searches for something it is displayed -->
+    <div id="searchPage" class="hidden">
+        <div id="search">
+            <h2>Search Results</h2>
+            <div id="searchResults"></div>
+            <button class="toggle-btn" onClick="goBackToPostPageFromSearch()">Back to Post Page</button>
+        </div>
+    </div>
+
+    <!-- In this section when the user clicks the profile page is it loaded -->
+    <div id="profilePage" class="hidden">
+        <div class="profile">
+            <h2>Your Profile</h2>
+            <div id="profileDetails"></div>
+            <button class="lrbutton" onclick="deleteAccount()">Delete Account</button>
+            <button class="lrbutton" onclick="logout()">Logout</button>
+            <h3>Follow or Unfollow Users</h3>
+            <input type="text" id="followUsername" placeholder="Enter username to follow">
+            <button class="lrbutton" onclick="followUser()">Follow</button>
+            <input type="text" id="unfollowUsername" placeholder="Enter username to unfollow">
+            <button class="lrbutton" onclick="unfollowUser()">Unfollow</button>
+            <h3>Check Following</h3>
+            <button class="lrbutton" onclick="showFollowing()">View Following</button>
+            <div id="followingList"></div>    
+            <button class="toggle-btn" onclick="goBackToPosts()">Back to Posts</button>
+        </div>
+    </div>
+
+    <script src="../JS/auth.js"></script>
+</body>
+</html>
